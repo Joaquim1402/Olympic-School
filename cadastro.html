@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Olympic School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .form-tab {
+            transition: all 0.3s ease;
+        }
+        .form-tab.active {
+            border-bottom: 3px solid #3b82f6;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+        .school-selector {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .school-selector.active {
+            border-left: 4px solid #3b82f6;
+            background-color: #eff6ff;
+        }
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-center">
+                <div class="flex items-center">
+                    <i class="fas fa-medal text-3xl mr-3 text-yellow-400"></i>
+                    <div>
+                        <h1 class="text-3xl font-bold">Olympic School</h1>
+                        <p class="text-sm opacity-90">Preparação 2025 para Olimpíadas Científicas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+            <!-- Form Header -->
+            <div class="bg-blue-600 text-white p-6 text-center">
+                <h2 class="text-2xl font-bold">Cadastre-se na Olympic School</h2>
+                <p class="mt-2">Escolha seu perfil e comece sua jornada olímpica em 2025</p>
+            </div>
+            
+            <!-- Form Tabs -->
+            <div class="flex border-b border-gray-200">
+                <button id="student-tab" class="form-tab active flex-1 py-4 text-center" onclick="switchForm('student')">
+                    <i class="fas fa-user-graduate mr-2"></i> Sou Aluno
+                </button>
+                <button id="teacher-tab" class="form-tab flex-1 py-4 text-center" onclick="switchForm('teacher')">
+                    <i class="fas fa-chalkboard-teacher mr-2"></i> Sou Professor
+                </button>
+            </div>
+            
+            <!-- Student Form -->
+            <div id="student-form" class="p-6">
+                <form id="register-student">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Personal Info -->
+                        <div class="md:col-span-2">
+                            <h3 class="text-lg font-medium text-gray-800 mb-4 border-b pb-2">
+                                <i class="fas fa-id-card mr-2 text-blue-600"></i> Informações Pessoais
+                            </h3>
+                        </div>
+                        
+                        <div>
+                            <label for="student-name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo*</label>
+                            <input type="text" id="student-name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <div>
+                            <label for="student-email" class="block text-sm font-medium text-gray-700 mb-1">E-mail*</label>
+                            <input type="email" id="student-email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <div>
+                            <label for="student-cpf" class="block text-sm font-medium text-gray-700 mb-1">CPF*</label>
+                            <input type="text" id="student-cpf" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="000.000.000-00">
+                        </div>
+                        
+                        <div>
+                            <label for="student-birth" class="block text-sm font-medium text-gray-700 mb-1">Data de Nascimento*</label>
+                            <input type="date" id="student-birth" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <div>
+                            <label for="student-password" class="block text-sm font-medium text-gray-700 mb-1">Senha*</label>
+                            <input type="password" id="student-password" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <div>
+                            <label for="student-confirm-password" class="block text-sm font-medium text-gray-700 mb-1">Confirmar Senha*</label>
+                            <input type="password" id="student-confirm-password" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <!-- School Info -->
+                        <div class="md:col-span-2 mt-4">
+                            <h3 class="text-lg font-medium text-gray-800 mb-4 border-b pb-2">
+                                <i class="fas fa-school mr-2 text-blue-600"></i> Informações Escolares
+                            </h3>
+                        </div>
+                        
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Sua Escola*</label>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                <div class="school-selector p-3 rounded-lg cursor-pointer active" onclick="selectSchool(this, 'ETE Jurandir Bezerra Lins')">
+                                    <div class="flex items-center">
+                                        <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                            <i class="fas fa-star text-blue-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium">ETE Jurandir Bezerra Lins</h4>
+                                            <p class="text-xs text-gray-500">Escola Técnica Estadual</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="school-selector p-3 rounded-lg cursor-pointer" onclick="selectSchool(this, 'Outra Escola Pública')">
+                                    <div class="flex items-center">
+                                        <div class="bg-gray-100 p-2 rounded-full mr-3">
+                                            <i class="fas fa-university text-gray-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium">Outra Escola Pública</h4>
+                                            <p class="text-xs text-gray-500">Municipal/Estadual/Federal</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="school-selector p-3 rounded-lg cursor-pointer" onclick="selectSchool(this, 'Escola Particular')">
+                                    <div class="flex items-center">
+                                        <div class="bg-gray-100 p-2 rounded-full mr-3">
+                                            <i class="fas fa-graduation-cap text-gray-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium">Escola Particular</h4>
+                                            <p class="text-xs text-gray-500">Colégio Privado</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="student-school" value="ETE Jurandir Bezerra Lins">
+                        </div>
+                        
+                        <div id="other-school-container" class="md:col-span-2 hidden">
+                            <label for="other-school-name" class="block text-sm font-medium text-gray-700 mb-1">Nome da Escola*</label>
+                            <input type="text" id="other-school-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <div>
+                            <label for="student-grade" class="block text-sm font-medium text-gray-700 mb-1">Série/Ano*</label>
+                            <select id="student-grade" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                <option value="">Selecione</option>
+                                <option value="1 DS">1º Ano (DS)</option>
+                                <option value="1 TET">1º Ano (TET)</option>
+                                <option value="2 DS">2º Ano (DS)</option>
+                                <option value="2 TET">2º Ano (TET)</option>
+                                <option value="3 DS">3º Ano (DS)</option>
+                                <option value="3 TET">3º Ano (TET)</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="student-class" class="block text-sm font-medium text-gray-700 mb-1">Turma*</label>
+                            <select id="student-class" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                <option value="">Selecione</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Olympiads -->
+                        <div class="md:col-span-2 mt-4">
+                            <h3 class="text-lg font-medium text-gray-800 mb-4 border-b pb-2">
+                                <i class="fas fa-medal mr-2 text-blue-600"></i> Olimpíadas de Interesse
+                            </h3>
+                            <p class="text-sm text-gray-500 mb-3">Selecione as olimpíadas que você pretende participar em 2025:</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                <div class="flex items-center">
+                                    <input id="student-oba" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                    <label for="student-oba" class="ml-2 block text-sm text-gray-700">OBA (Astronomia)</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input id="student-obfep" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                    <label for="student-obfep" class="ml-2 block text-sm text-gray-700">OBFEP (Física)</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input id="student-obmep" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                    <label for="student-obmep" class="ml-2 block text-sm text-gray-700">OBMEP (Matemática)</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input id="student-onc" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                    <label for="student-onc" class="ml-2 block text-sm text-gray-700">ONC (Ciências)</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input id="student-opeq" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                    <label for="student-opeq" class="ml-2 block text-sm text-gray-700">OPEQ (Química)</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input id="student-other" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                    <label for="student-other" class="ml-2 block text-sm text-gray-700">Outras</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Terms -->
+                        <div class="md:col-span-2 mt-4">
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="student-terms" type="checkbox" required class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="student-terms" class="font-medium text-gray-700">Concordo com os <a href="#" class="text-blue-600 hover:underline">Termos de Uso</a> và <a href="#" class="text-blue-600 hover:underline">Política de Privacidade</a>*</label>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mt-3">
+                                <div class="flex items-center h-5">
+                                    <input id="student-newsletter" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="student-newsletter" class="font-medium text-gray-700">Desejo receber novidades e materiais exclusivos por e-mail</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Submit -->
+                        <div class="md:col-span-2 mt-6">
+                            <button type="submit" class="w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition flex items-center justify-center">
+                                <i class="fas fa-user-plus mr-2"></i> Cadastrar como Aluno
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Teacher Form -->
+            <div id="teacher-form" class="p-6 hidden">
+                <form id="register-teacher">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Personal Info -->
+                        <div class="md:col-span-2">
+                            <h3 class="text-lg font-medium text-gray-800 mb-4 border-b pb-2">
+                                <i class="fas fa-id-card mr-2 text-blue-600"></i> Informações Pessoais
+                            </h3>
+                        </div>
+                        
+                        <div>
+                            <label for="teacher-name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo*</label>
+                            <input type="text id="teacher-name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <div>
+                            <label for="teacher-email" class="block text-sm font-medium text-gray-700 mb-1">E-mail Institucional*</label>
+                            <input type="email" id="teacher-email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            <p class="text-xs text-gray-500 mt-1">Use seu e-mail da escola para verificação</p>
+                        </div>
+                        
+                        <div>
+                            <label for="teacher-cpf" class="block text-sm font-medium text-gray-700 mb-1">CPF*</label>
+                            <input type="text" id="teacher-cpf" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="000.000.000-00">
+                        </div>
+                        
+                        <div>
+                            <label for="teacher-birth" class="block text-sm font-medium text-gray-700 mb-1">Data de Nascimento*</label>
+                            <input type="date" id="teacher-birth" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <div>
+                            <label for="teacher-password" class="block text-sm font-medium text-gray-700 mb-1">Senha*</label>
+                            <input type="password" id="teacher-password" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <div>
+                            <label for="teacher-confirm-password" class="block text-sm font-medium text-gray-700 mb-1">Confirmar Senha*</label>
+                            <input type="password" id="teacher-confirm-password" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <!-- School Info -->
+                        <div class="md:col-span-2 mt-4">
+                            <h3 class="text-lg font-medium text-gray-800 mb-4 border-b pb-2">
+                                <i class="fas fa-school mr-2 text-blue-600"></i> Informações Profissionais
+                            </h3>
+                        </div>
+                        
+                        <div class="md:col-span-2">
+                            <label for="teacher-school" class="block text-sm font-medium text-gray-700 mb-1">Escola*</label>
+                            <select id="teacher-school" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                <option value="">Selecione sua escola</option>
+                                <option value="ETE Jurandir Bezerra Lins">ETE Jurandir Bezerra Lins</option>
+                                <option value="Outra Escola">Outra Escola Pública/Privada</option>
+                            </select>
+                        </div>
+                        
+                        <div id="teacher-other-school-container" class="md:col-span-2 hidden">
+                            <label for="teacher-other-school-name" class="block text-sm font-medium text-gray-700 mb-1">Nome da Escola*</label>
+                            <input type="text" id="teacher-other-school-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <div>
+                            <label for="teacher-subject" class="block text-sm font-medium text-gray-700 mb-1">Disciplina Principal*</label>
+                            <select id="teacher-subject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                <option value="">Selecione</option>
+                                <option value="Matemática">Matemática</option>
+                                <option value="Física">Física</option>
+                                <option value="Astronomia">Astronomia</option>
+                                <option value="Química">Química</option>
+                                <option value="Biologia">Biologia</option>
+                                <option value="Ciências">Ciências</option>
+                                <option value="Outra">Outra</option>
+                            </select>
+                        </div>
+                        
+                        <div id="teacher-other-subject-container" class="hidden">
+                            <label for="teacher-other-subject" class="block text-sm font-medium text-gray-700 mb-1">Especifique a Disciplina*</label>
+                            <input type="text" id="teacher-other-subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        
+                        <div>
+                            <label for="teacher-registration" class="block text-sm font-medium text-gray-700 mb-1">Registro Docente (Caso tenha)</label>
+                            <input type="text" id="teacher-registration" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Número de registro">
+                        </div>
+                        
+                        <!-- Teacher Features -->
+                        <div class="md:col-span-2 mt-4">
+                            <h3 class="text-lg font-medium text-gray-800 mb-4 border-b pb-2">
+                                <i class="fas fa-chalkboard mr-2 text-blue-600"></i> Recursos para Professores
+                            </h3>
+                            
+                            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+                                <div class="flex">
+                                    <div class="flex-shrink-0">
+                                        <i class="fas fa-info-circle text-blue-400"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm text-blue-700">
+                                            Professores da ETE Jurandir Bezerra Lins terão acesso exclusivo ao ranking de alunos da escola e poderão enviar materiais complementares.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="flex items-center h-5">
+                                        <input id="teacher-calendar" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked disabled>
+                                    </div>
+                                    <div class="ml-3 text-sm">
+                                        <label for="teacher-calendar" class="font-medium text-gray-700">Acesso ao Calendário de Olimpíadas</label>
+                                        <p class="text-gray-500">Datas importantes e prazos de todas as competições</p>
+                                    </div>
+                                </div>
+                                
+                                <div id="ete-features" class="space-y-4">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="teacher-ranking" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked disabled>
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="teacher-ranking" class="font-medium text-gray-700">Acesso ao Ranking da ETE Jurandir Bezerra Lins</label>
+                                            <p class="text-gray-500">Desempenho dos alunos da sua escola nas olimpíadas</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="teacher-materials" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked disabled>
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="teacher-materials" class="font-medium text-gray-700">Enviar Materiais Complementares</label>
+                                            <p class="text-gray-500">Compartilhe exercícios, listas e conteúdes com seus alunos</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="teacher-reports" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked disabled>
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="teacher-reports" class="font-medium text-gray-700">Relatórios de Desempenho</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="other-school-features" class="hidden">
+                                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <i class="fas fa-info-circle text-yellow-400"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-sm text-yellow-700">
+                                                    Professores de outras escolas terão acesso básico à plataforma. Para solicitar acesso ao ranking de sua escola, entre em contato após o cadastro.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Terms -->
+                        <div class="md:col-span-2 mt-4">
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="teacher-terms" type="checkbox" required class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="teacher-terms" class="font-medium text-gray-700">Concordo com os <a href="#" class="text-blue-600 hover:underline">Termos de Uso</a> e <a href="#" class="text-blue-600 hover:underline">Política de Privacidade</a>*</label>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mt-3">
+                                <div class="flex items-center h-5">
+                                    <input id="teacher-verification" type="checkbox" required class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="teacher-verification" class="font-medium text-gray-700">Autorizo a verificação de minha identidade como docente*</label>
+                                    <p class="text-gray-500">Seu cadastro será validado em até 48 horas</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Submit -->
+                        <div class="md:col-span-2 mt-6">
+                            <button type="submit" class="w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition flex items-center justify-center">
+                                <i class="fas fa-user-tie mr-2"></i> Cadastrar como Professor
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Login Prompt -->
+        <div class="max-w-4xl mx-auto mt-8 text-center">
+            <p class="text-gray-600">Já possui uma conta? <a href="login.html" class="text-blue-600 font-medium hover:underline">Faça login aqui</a></p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-medal text-2xl mr-3 text-yellow-400"></i>
+                        <span class="text-xl font-bold">Olympic School</span>
+                    </div>
+                    <p class="text-gray-400 mt-1 text-sm">Preparação para Olimpíadas Científicas 2025</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>© 2025 Olympic School. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Switch between student and teacher forms
+        function switchForm(formType) {
+            if(formType === 'student') {
+                document.getElementById('student-tab').classList.add('active');
+                document.getElementById('teacher-tab').classList.remove('active');
+                document.getElementById('student-form').classList.remove('hidden');
+                document.getElementById('teacher-form').classList.add('hidden');
+            } else {
+                document.getElementById('teacher-tab').classList.add('active');
+                document.getElementById('student-tab').classList.remove('active');
+                document.getElementById('teacher-form').classList.remove('hidden');
+                document.getElementById('student-form').classList.add('hidden');
+            }
+        }
+        
+        // School selection for students
+        function selectSchool(element, schoolName) {
+            // Remove active class from all school selectors
+            document.querySelectorAll('.school-selector').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Add active class to clicked element
+            element.classList.add('active');
+            
+            // Update hidden input value
+            document.getElementById('student-school').value = schoolName;
+            
+            // Show/hide other school name input
+            if(schoolName === 'ETE Jurandir Bezerra Lins') {
+                document.getElementById('other-school-container').classList.add('hidden');
+            } else {
+                document.getElementById('other-school-container').classList.remove('hidden');
+            }
+        }
+        
+        // School selection for teachers
+        document.getElementById('teacher-school').addEventListener('change', function() {
+            if(this.value === 'Outra Escola') {
+                document.getElementById('teacher-other-school-container').classList.remove('hidden');
+                document.getElementById('ete-features').classList.add('hidden');
+                document.getElementById('other-school-features').classList.remove('hidden');
+            } else {
+                document.getElementById('teacher-other-school-container').classList.add('hidden');
+                if(this.value === 'ETE Jurandir Bezerra Lins') {
+                    document.getElementById('ete-features').classList.remove('hidden');
+                    document.getElementById('other-school-features').classList.add('hidden');
+                } else {
+                    document.getElementById('ete-features').classList.add('hidden');
+                    document.getElementById('other-school-features').classList.remove('hidden');
+                }
+            }
+        });
+        
+        // Subject selection for teachers
+        document.getElementById('teacher-subject').addEventListener('change', function() {
+            if(this.value === 'Outra') {
+                document.getElementById('teacher-other-subject-container').classList.remove('hidden');
+            } else {
+                document.getElementById('teacher-other-subject-container').classList.add('hidden');
+            }
+        });
+        
+        // Form submission
+        document.getElementById('register-student').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Cadastro de aluno enviado com sucesso! Verifique seu e-mail para ativar sua conta.');
+            // Here you would typically send the data to your backend
+        });
+        
+        document.getElementById('register-teacher').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Cadastro de professor enviado! Sua conta será verificada em até 48 horas. Você receberá um e-mail quando estiver ativa.');
+            // Here you would typically send the data to your backend
+        });
+    </script>
+</body>
+</html>
