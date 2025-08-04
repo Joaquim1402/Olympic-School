@@ -59,7 +59,7 @@
                         <i class="fas fa-medal text-3xl mr-3 text-yellow-400"></i>
                         <div>
                             <h1 class="text-4xl font-bold mb-2">Olympic School</h1>
-                            <p class="text-xl opacity-90">Plataforma 100% gratuita para OBA, OBFEP, OBMEP e mais</p>
+                            <p class="text-xl opacity-90">Plataforma para OBA, OBFEP, OBMEP e mais</p>
                         </div>
                     </div>
                 </div>
@@ -70,8 +70,8 @@
                             <span id="countdown">00d 00h 00m</span>
                         </div>
                     </div>
-                    <a href="#login" class="px-6 py-2 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition">Login</a>
-                    <a href="#register" class="px-6 py-2 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-blue-600 transition">Cadastre-se</a>
+                    <a href="index.html" class="px-6 py-2 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition">Login</a>
+                    <a href="cadastro.html" class="px-6 py-2 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-blue-600 transition">Cadastre-se</a>
                 </div>
             </div>
         </div>
@@ -120,8 +120,8 @@
                         <div class="mb-4">
                             <span class="free-badge text-sm font-medium px-3 py-1 rounded-full">PLATAFORMA 100% GRATUITA</span>
                         </div>
-                        <h2 class="text-3xl font-bold text-gray-800 mb-4">Prepare-se para as Olimpíadas 2025 sem custos</h2>
-                        <p class="text-gray-600 mb-6">A Olympic School oferece a melhor preparação gratuita para olimpíadas científicas, com materiais completos, simulados e acompanhamento de desempenho.</p>
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4">Prepare-se para as Olimpíadas 2025</h2>
+                        <p class="text-gray-600 mb-6">A Olympic School oferece a melhor preparação para olimpíadas científicas, com materiais completos, simulados e acompanhamento de desempenho.</p>
                         <div class="flex flex-wrap gap-4">
                             <a href="#editals" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition flex items-center">
                                 <i class="fas fa-file-alt mr-2"></i> Editais 2025
@@ -162,8 +162,8 @@
                         <i class="fas fa-chart-line text-6xl text-purple-600"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Ranking Nacional</h3>
-                        <p class="text-gray-600 mb-4">Compare seu desempenho com estudantes de todo o Brasil e veja sua evolução.</p>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Ranking Escolar</h3>
+                        <p class="text-gray-600 mb-4">Compare seu desempenho com colegas da ETE Jurandir Bezerra Lins.</p>
                         <a href="#ranking" class="text-blue-600 font-medium hover:underline flex items-center">
                             Ver Ranking <i class="fas fa-arrow-right ml-2 text-sm"></i>
                         </a>
@@ -321,7 +321,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div id="obfep-edital" class="tab-content p-6">
                     <h3 class="text-xl font-bold text-gray-800 mb-4">Edital OBFEP 2025</h3>
                     <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
@@ -361,7 +361,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div id="obmep-edital" class="tab-content p-6">
                     <h3 class="text-xl font-bold text-gray-800 mb-4">Edital OBMEP 2025</h3>
                     <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
@@ -401,7 +401,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div id="outras-edital" class="tab-content p-6">
                     <h3 class="text-xl font-bold text-gray-800 mb-4">Outras Olimpíadas 2025</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -437,7 +437,7 @@
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="p-6 border-b border-gray-200 flex justify-between items-center">
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-800">Materiais Gratuitos</h2>
+                        <h2 class="text-2xl font-bold text-gray-800">Materiais</h2>
                         <p class="text-gray-600 mt-2">Apostilas, videoaulas e exercícios para todas as olimpíadas</p>
                     </div>
                     <div class="flex items-center">
@@ -540,7 +540,7 @@
                 <div class="p-6 border-b border-gray-200">
                     <div class="flex justify-between items-center">
                         <div>
-                            <h2 class="text-2xl font-bold text-gray-800">Simulados Gratuitos</h2>
+                            <h2 class="text-2xl font-bold text-gray-800">Simulados</h2>
                             <p class="text-gray-600 mt-2">Provas no formato das olimpíadas com correção automática</p>
                         </div>
                         <div class="hidden md:block bg-blue-100 px-4 py-2 rounded-full">
@@ -663,12 +663,12 @@
                 
                 <div class="p-6">
                     <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-xl font-bold text-gray-800">Maio 2025</h3>
+                        <h3 id="calendar-month" class="text-xl font-bold text-gray-800">Janeiro 2025</h3>
                         <div class="flex space-x-2">
-                            <button class="p-2 rounded-full hover:bg-gray-100">
+                            <button id="prev-month" class="p-2 rounded-full hover:bg-gray-100">
                                 <i class="fas fa-chevron-left text-gray-600"></i>
                             </button>
-                            <button class="p-2 rounded-full hover:bg-gray-100">
+                            <button id="next-month" class="p-2 rounded-full hover:bg-gray-100">
                                 <i class="fas fa-chevron-right text-gray-600"></i>
                             </button>
                         </div>
@@ -685,51 +685,8 @@
                         <div class="text-center font-medium text-gray-500 py-2">Sáb</div>
                     </div>
                     
-                    <div class="grid grid-cols-7 gap-2">
-                        <!-- Week 1 -->
-                        <div class="text-center py-2 text-gray-400">27</div>
-                        <div class="text-center py-2 text-gray-400">28</div>
-                        <div class="text-center py-2 text-gray-400">29</div>
-                        <div class="text-center py-2 text-gray-400">30</div>
-                        <div class="text-center py-2">1</div>
-                        <div class="text-center py-2">2</div>
-                        <div class="text-center py-2">3</div>
-                        
-                        <!-- Week 2 -->
-                        <div class="text-center py-2">4</div>
-                        <div class="text-center py-2">5</div>
-                        <div class="text-center py-2 active">6 <span class="block text-xs text-blue-600">OBA</span></div>
-                        <div class="text-center py-2">7</div>
-                        <div class="text-center py-2">8</div>
-                        <div class="text-center py-2">9</div>
-                        <div class="text-center py-2">10</div>
-                        
-                        <!-- Week 3 -->
-                        <div class="text-center py-2">11</div>
-                        <div class="text-center py-2">12</div>
-                        <div class="text-center py-2">13</div>
-                        <div class="text-center py-2 active">14 <span class="block text-xs text-purple-600">OBMEP</span></div>
-                        <div class="text-center py-2">15</div>
-                        <div class="text-center py-2">16</div>
-                        <div class="text-center py-2">17</div>
-                        
-                        <!-- Week 4 -->
-                        <div class="text-center py-2">18</div>
-                        <div class="text-center py-2">19</div>
-                        <div class="text-center py-2 active">20 <span class="block text-xs text-green-600">OBFEP</span></div>
-                        <div class="text-center py-2">21</div>
-                        <div class="text-center py-2">22</div>
-                        <div class="text-center py-2">23</div>
-                        <div class="text-center py-2">24</div>
-                        
-                        <!-- Week 5 -->
-                        <div class="text-center py-2">25</div>
-                        <div class="text-center py-2">26</div>
-                        <div class="text-center py-2">27</div>
-                        <div class="text-center py-2">28</div>
-                        <div class="text-center py-2">29</div>
-                        <div class="text-center py-2">30</div>
-                        <div class="text-center py-2">31</div>
+                    <div id="calendar-grid" class="grid grid-cols-7 gap-2">
+                        <!-- Calendar will be generated by JavaScript -->
                     </div>
                     
                     <!-- Legend -->
@@ -803,8 +760,8 @@
         <section id="ranking" class="mb-16">
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="p-6 border-b border-gray-200">
-                    <h2 class="text-2xl font-bold text-gray-800">Ranking Nacional 2025</h2>
-                    <p class="text-gray-600 mt-2">Veja como está seu desempenho em relação a outros estudantes</p>
+                    <h2 class="text-2xl font-bold text-gray-800">Ranking ETE Jurandir Bezerra Lins</h2>
+                    <p class="text-gray-600 mt-2">Veja como está seu desempenho em relação a colegas da sua escola</p>
                 </div>
                 
                 <div class="p-6">
@@ -814,7 +771,7 @@
                                 <tr>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Posição</th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estudante</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Escola</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Turma</th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">OBA</th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">OBFEP</th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">OBMEP</th>
@@ -825,7 +782,7 @@
                                 <tr class="bg-yellow-50">
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Carlos Silva</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Colégio Objetivo - SP</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">3º A</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Ouro</span>
                                     </td>
@@ -840,7 +797,7 @@
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Ana Oliveira</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Colégio Militar - RJ</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2º B</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">Prata</span>
                                     </td>
@@ -855,7 +812,7 @@
                                 <tr class="bg-blue-50">
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Você</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sua Escola</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2º C</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Ouro</span>
                                     </td>
@@ -870,7 +827,7 @@
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">4</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Pedro Santos</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Colégio Bernoulli - MG</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1º A</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Ouro</span>
                                     </td>
@@ -885,7 +842,7 @@
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">5</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Mariana Costa</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Colégio Ari de Sá - CE</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">3º B</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">Prata</span>
                                     </td>
@@ -920,7 +877,7 @@
                 <div class="md:flex">
                     <div class="md:w-1/2 bg-blue-600 p-8 md:p-12 text-white">
                         <h2 class="text-2xl font-bold mb-4">Receba Atualizações para 2025</h2>
-                        <p class="mb-6">Cadastre-se para receber alertas sobre editais, datas importantes e novos materiais gratuitos.</p>
+                        <p class="mb-6">Cadastre-se para receber alertas sobre editais, datas importantes e novos materiais.</p>
                         <div class="flex space-x-4">
                             <div class="bg-white bg-opacity-20 p-3 rounded-full">
                                 <i class="fab fa-whatsapp text-xl"></i>
@@ -990,7 +947,7 @@
                         <i class="fas fa-medal text-2xl mr-3 text-yellow-400"></i>
                         <h3 class="text-xl font-bold">Olympic School</h3>
                     </div>
-                    <p class="text-gray-400">Plataforma gratuita para preparação em olimpíadas científicas em 2025.</p>
+                    <p class="text-gray-400">Plataforma para preparação em olimpíadas científicas em 2025.</p>
                     <div class="mt-4 flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white transition">
                             <i class="fab fa-facebook-f"></i>
@@ -1019,10 +976,10 @@
                 <div>
                     <h4 class="font-bold mb-4">Recursos</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Materiais Gratuitos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Materiais</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Simulados</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Calendário 2025</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Ranking Nacional</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Ranking Escolar</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Tutoria Inteligente</a></li>
                     </ul>
                 </div>
@@ -1062,24 +1019,6 @@
             const obaDate = new Date('May 19, 2025 00:00:00');
             const diff = obaDate - now;
             
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            
-            document.getElementById('countdown').textContent = 
-                `${days}d ${hours}h ${minutes}m`;
-        }
-        
-        // Update countdown every minute
-        updateCountdown();
-        setInterval(updateCountdown, 60000);
-        
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-        
-        // Tab functionality
-        function openTab(evt, tabName)
+            const days = Math.floor(diff / (100
+</body>
 </html>
